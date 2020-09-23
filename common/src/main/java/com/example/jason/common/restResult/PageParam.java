@@ -1,0 +1,38 @@
+package com.example.jason.common.restResult;
+
+import com.example.jason.common.utils.CoreUtils;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+/**
+ * @author Jason
+ * @ClassName: PageParam
+ * @Description: 分页信息的封装
+ * @date 2020-9-21 17:35:22
+ */
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@ApiModel(value="PageParam",description="分页信息")
+public class PageParam {
+
+    @ApiModelProperty(value="当前页码, 默认值为1")
+    private Integer page = 1;
+
+    @ApiModelProperty(value="每页尺寸, 默认值为10")
+    private Integer size = 10;
+
+    @ApiModelProperty(value="排序字段，默认使用ID来排序")
+    private String sortField = "`timestamp`";
+
+    @ApiModelProperty(value="排序方式，默认降序")
+    private String sortOrder = "DESC";
+
+    public String getOrderBy(){
+        return CoreUtils.getOrderBy(sortField, sortOrder);
+    }
+
+}
