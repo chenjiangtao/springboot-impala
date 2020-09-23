@@ -38,6 +38,7 @@
 
 
     <repositories>
+        <!--        for impala-->
         <repository>
             <id>odysseusinc</id>
             <name>odysseusinc Central</name>
